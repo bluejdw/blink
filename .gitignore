@@ -1,52 +1,26 @@
-# Prerequisites
-*.d
-
-# Object files
+**/.deps
+*.log
 *.o
-*.ko
-*.obj
 *.elf
+*.swp
 
-# Linker output
-*.ilk
-*.map
-*.exp
+.vs/
 
-# Precompiled Headers
-*.gch
-*.pch
+Debug/**
 
-# Libraries
-*.lib
-*.a
-*.la
-*.lo
+## The image file and map file compiled
+**/*.map
+**/*.elf
 
-# Shared objects (inc. Windows DLLs)
-*.dll
-*.so
-*.so.*
-*.dylib
+## GDB Server related
+**/server.out
 
-# Executables
-*.exe
-*.out
-*.app
-*.i*86
-*.x86_64
-*.hex
+## ispell related
+**/*.bak
 
-# Debug files
-*.dSYM/
-*.su
-*.idb
-*.pdb
-
-# Kernel Module Compile Results
-*.mod*
-*.cmd
-.tmp_versions/
-modules.order
-Module.symvers
-Mkfile.old
-dkms.conf
+## tex related
+*.aux
+*.dvi
+*.ind
+*.ilg
+*.idx
