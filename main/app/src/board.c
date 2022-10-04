@@ -68,8 +68,21 @@ const stc_iocfg_pin_cfg_t ioPinCfgArr[] =
 {VOR_PORTB,11,en_iocfg_dir__input, {{.fltclk=0,.invinp=0,.iewo=0,.opendrn=0,.invout=0,.plevel=0,.pen=0,.pwoa=0,.funsel=0,.iodis=0}}},
 {VOR_PORTB,12,en_iocfg_dir__input, {{.fltclk=0,.invinp=0,.iewo=0,.opendrn=0,.invout=0,.plevel=0,.pen=0,.pwoa=0,.funsel=3,.iodis=0}}},
 {VOR_PORTB,13,en_iocfg_dir__input, {{.fltclk=0,.invinp=0,.iewo=0,.opendrn=0,.invout=0,.plevel=0,.pen=0,.pwoa=0,.funsel=3,.iodis=0}}},
-{VOR_PORTB,14,en_iocfg_dir__input, {{.fltclk=0,.invinp=0,.iewo=0,.opendrn=0,.invout=0,.plevel=0,.pen=0,.pwoa=0,.funsel=3,.iodis=0}}},
-{VOR_PORTB,15,en_iocfg_dir__input, {{.fltclk=0,.invinp=0,.iewo=0,.opendrn=0,.invout=0,.plevel=0,.pen=0,.pwoa=0,.funsel=3,.iodis=0}}},
+
+// bluejdw:
+
+// The inversion of the Tx/Rx is necessary because when
+// the default Blinky project is used, and the board
+// is connected through a typical FTDI interposer, the Tx/Rx are inverted
+// and it creates a stream of garbage when consumed by the terminal software.
+// 
+// After inverting the signal for the UART (invout = 1, invinp = 1) then
+// the signal representing the data transmitted conforms with the
+// expectation of the terminal software for the demo.
+
+{VOR_PORTB,14,en_iocfg_dir__input, {{.fltclk=0,.invinp=1,.iewo=0,.opendrn=0,.invout=1,.plevel=0,.pen=0,.pwoa=0,.funsel=3,.iodis=0}}},
+{VOR_PORTB,15,en_iocfg_dir__input, {{.fltclk=0,.invinp=1,.iewo=0,.opendrn=0,.invout=1,.plevel=0,.pen=0,.pwoa=0,.funsel=3,.iodis=0}}},
+
 {VOR_PORTC, 0,en_iocfg_dir__input, {{.fltclk=0,.invinp=0,.iewo=0,.opendrn=0,.invout=0,.plevel=0,.pen=0,.pwoa=0,.funsel=0,.iodis=0}}},
 {VOR_PORTC, 1,en_iocfg_dir__input, {{.fltclk=0,.invinp=0,.iewo=0,.opendrn=0,.invout=0,.plevel=0,.pen=0,.pwoa=0,.funsel=0,.iodis=0}}},
 {VOR_PORTC, 2,en_iocfg_dir__input, {{.fltclk=0,.invinp=0,.iewo=0,.opendrn=0,.invout=0,.plevel=0,.pen=0,.pwoa=0,.funsel=0,.iodis=0}}},
